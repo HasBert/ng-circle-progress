@@ -654,6 +654,70 @@ export class CircleProgressComponent implements OnChanges, OnInit, OnDestroy {
         }
     };
 
+    private calculateGradientTransformation(progress: number) {
+        const PROGRESS_MIN = 0;
+        const PROGRESS_MAX = 100;
+        const FULL_CIRCLE = 360;
+        const oneEidght = FULL_CIRCLE / 8;
+
+        const x1, y1, x2, y2 = 0;
+        const rotation = 0;
+
+
+
+        const one_percent_to_one_deg = (percent: number) => percent * 3.6;
+        //const one_percent_to_one_deg = (percent: number) => percent * 3.6;
+
+        const obj = { decreser: 0, stayer: 0, increaser: 0 };
+        const arr = [y1, x2, y2, x1];
+        const deg45 = { decreser: 0, stayer: 100, increaser: 100 };
+        const deg90 = { decreser: 0, stayer: 100, increaser: 0 };
+        // move clockwise shift coordinates ever 2 steps
+        const firstItem = arr.shift();
+        arr.push(firstItem);
+
+        const pointer = () => {
+            let numb = 1;
+
+            const decIdx = 3;
+            const stayIdx = 0;
+            const incIdx = 1;
+
+            const increaseIdx = (idx: number, arrLength) => {
+                if (idx % arrLength) { return 0; }
+                return (idx + 1);
+            };
+        };
+
+        const defaut = {
+            deg: deg90, values: [y1, x2, y2]
+        };
+        const moveTo = {
+            deg: deg45, values: [y1, x2, y2]
+        };
+        // repeat with new array
+        const moveToNext = {
+            deg: deg90, values: [x2, y2, x1]
+        };
+        const moveToNextNext = {
+            deg: deg45, values: [y1, x2, y2]
+        };
+
+        // repeat with new array
+        const moveToNextNextNext = {
+            deg: deg90, values: [x2, y2, x1]
+        };
+        const moveToNextNextNextNext = {
+            deg: deg45, values: [x2, y2, x1]
+        };
+
+        const penis = () => {
+            const isTransition: boolean = (one_percent_to_one_deg(progress) % oneEidght) === 0;
+
+        };
+
+    }
+
     private isElementInViewport(el): Boolean {
         // Return false if el has not been created in page.
         if (el === null || el === undefined) return false;
