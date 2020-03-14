@@ -676,45 +676,44 @@ export class CircleProgressComponent implements OnChanges, OnInit, OnDestroy {
         const firstItem = arr.shift();
         arr.push(firstItem);
 
-        const pointer = () => {
-            let numb = 1;
-
-            const decIdx = 3;
-            const stayIdx = 0;
-            const incIdx = 1;
-
-            const increaseIdx = (idx: number, arrLength) => {
-                if (idx % arrLength) { return 0; }
+        const pointer = (pointerBefore) => {
+            const increaseIdx = (idx: number, arrLength): number => {
+                if (idx % arrLength - 1) { return 0; }
                 return (idx + 1);
             };
+            return pointerBefore.map(idx => increaseIdx(idx, arr.length));
         };
 
-        const defaut = {
-            deg: deg90, values: [y1, x2, y2]
-        };
-        const moveTo = {
-            deg: deg45, values: [y1, x2, y2]
-        };
-        // repeat with new array
-        const moveToNext = {
-            deg: deg90, values: [x2, y2, x1]
-        };
-        const moveToNextNext = {
-            deg: deg45, values: [y1, x2, y2]
-        };
+        const point = pointer([3, 0, 1]);
 
-        // repeat with new array
-        const moveToNextNextNext = {
-            deg: deg90, values: [x2, y2, x1]
-        };
-        const moveToNextNextNextNext = {
-            deg: deg45, values: [x2, y2, x1]
-        };
 
-        const penis = () => {
-            const isTransition: boolean = (one_percent_to_one_deg(progress) % oneEidght) === 0;
 
-        };
+        // const defaut = {
+        //     deg: deg90, values: [y1, x2, y2]
+        // };
+        // const moveTo = {
+        //     deg: deg45, values: [y1, x2, y2]
+        // };
+        // // repeat with new array
+        // const moveToNext = {
+        //     deg: deg90, values: [x2, y2, x1]
+        // };
+        // const moveToNextNext = {
+        //     deg: deg45, values: [y1, x2, y2]
+        // };
+
+        // // repeat with new array
+        // const moveToNextNextNext = {
+        //     deg: deg90, values: [x2, y2, x1]
+        // };
+        // const moveToNextNextNextNext = {
+        //     deg: deg45, values: [x2, y2, x1]
+        // };
+
+        // const penis = () => {
+        //     const isTransition: boolean = (one_percent_to_one_deg(progress) % oneEidght) === 0;
+
+        // };
 
     }
 
